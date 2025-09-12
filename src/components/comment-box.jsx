@@ -7,7 +7,7 @@ const CommentBox = ({comment}) => {
     const [isReplying, setIsReplying] = React.useState(false);
 
     return (
-    <li key={comment.id} className="mb-4 ml-10">
+    <li key={comment.id} className="mb-4">
       <fieldset className="fieldset">
         <legend className="fieldset-legend">{comment.user}</legend>
         <div>{comment.text}</div>

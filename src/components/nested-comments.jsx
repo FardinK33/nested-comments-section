@@ -6,14 +6,12 @@ const NestedComments = ({nestedComments}) => {
     <>
     {
         nestedComments.map(comment => (
-            <>
-        <CommentBox key={comment.id} comment={comment} />
-          {comment.replies.length > 0 && (
-            <div>
-                    <NestedComments nestedComments={comment.replies} />
-            </div>
-          )}
-          </>
+          <div key={comment.id} className='ml-10'>
+            <CommentBox key={comment.id} comment={comment} />
+            {comment.replies.length > 0 && (
+              <NestedComments nestedComments={comment.replies} />
+            )}
+          </div>
         ))
     }
     </>

@@ -2,22 +2,20 @@ import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import useCommentsStore from '../zustand/comments-store';
 
-const initialState = {text: "", parentId: null, upvotes: 0, downvotes: 0};
+const initialState = {text: "", upvotes: 0, downvotes: 0};
 
-const InputComment = ({providedParent, isReply, toggleReplyChange, providedId=Date.now() }) => {
+const InputComment = ({providedParent, isReply, toggleReplyChange }) => {
 
     const [comment, setComment] = useState(initialState);
     const { addComment } = useCommentsStore();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setComment(prev => ({...prev, parentId: providedParent || null}));
         
         if (isReply) {
             toggleReplyChange(false);
         }
-        setComment(prev => ({...prev}));
-        addComment(comment);
+        addComment({...comment, parentId: providedParent || null }); 
         setComment(initialState);
     }
 
