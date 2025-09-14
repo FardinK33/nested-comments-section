@@ -15,7 +15,7 @@ const InputComment = ({providedParent, isReply, toggleReplyChange }) => {
         if (isReply) {
             toggleReplyChange(false);
         }
-        addComment({...comment, parentId: providedParent || null }); 
+        if (comment.text.trim()) addComment({...comment, parentId: providedParent || null }); 
         setComment(initialState);
     }
 
