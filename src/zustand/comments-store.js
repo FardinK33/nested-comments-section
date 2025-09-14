@@ -5,7 +5,7 @@ const useCommentsStore = create((set) => ({
     setUsername: (name) => set({username: name}),
     comments: [],
     addComment: (comment) =>
-      set((state) => ({comments: [...state.comments, {...comment, id: Date.now().toLocaleString()}]})),
+      set((state) => ({comments: [...state.comments, {...comment, id: Date.now()}]})),
     upvoteComment: (id) =>
       set((state) => ({
         comments: state.comments.map((comment) =>

@@ -5,7 +5,7 @@ const NestedComments = ({nestedComments}) => {
   return (
     <>
     {
-        nestedComments.map(comment => (
+        nestedComments?.map(comment => (
           <div key={comment.id} className='ml-10'>
             <CommentBox key={comment.id} comment={comment} />
             {comment.replies.length > 0 && (
